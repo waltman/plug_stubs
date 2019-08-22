@@ -87,7 +87,7 @@ sub usage() {
 }
 
 sub first_dow($dow, $first_dow) {
-    ($dow-$first_dow) % 7 + 1;
+    ($dow - $first_dow) % 7 + 1;
 }
 
 sub first_wed($first_dow) {
