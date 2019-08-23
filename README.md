@@ -1,7 +1,7 @@
 # plug_stubs
 Utility to create dated stubs for monthly Philadelphia Linux User Group meetings
 
-For historical reasons the Upcoming Meetings page for the Philadelphia Linux Users group uses a hardwired HTML table. There are 3 meetings most months, which are held on the first Wednesday, second Tuesday, and third Monday of the month. They use the following template:
+For historical reasons the [Upcoming Meetings](http://www.phillylinux.org/meetings.html) page for the [Philadelphia Linux Users Group](http://www.phillylinux.org/) uses a hardwired HTML table. There are 3 meetings most months, which are held on the first Wednesday, second Tuesday, and third Monday of the month. They use the following template:
 
 ```
 <tr class="central">
