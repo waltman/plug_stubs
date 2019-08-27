@@ -4,7 +4,7 @@
 #
 # Example:
 #
-# $ plug_date west 8 2019
+# $ plug_date west 2019 8
 # 2019-08-19
 
 use strict;
