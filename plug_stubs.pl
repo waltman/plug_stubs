@@ -46,14 +46,11 @@ my $dt = DateTime->new(
 my $dow = $dt->day_of_week;
 my $central = first_wed($dow);
 my $north = second_tue($dow);
-my $west = third_mon($dow);
 
 my $central_tag = sprintf "c%4d%02d%02d", $yyyy, $mm, $central;
 my $central_date = sprintf "%d/%d/%d", $mm, $central, $yyyy;
 my $north_tag = sprintf "n%4d%02d%02d", $yyyy, $mm, $north;
 my $north_date = sprintf "%d/%d/%d", $mm, $north, $yyyy;
-my $west_tag = sprintf "w%4d%02d%02d", $yyyy, $mm, $west;
-my $west_date = sprintf "%d/%d/%d", $mm, $west, $yyyy;
 
 print <<EOT;
 <tr class="central">
@@ -72,13 +69,6 @@ print <<EOT;
   <td><a href="locations/coredial.html">Coredial, Blue Bell</a></td>
 </tr>
 
-<tr class="west">
-  <td><a name="$west_tag" />PLUG West</td>
-  <td class="date">$west_date</td>
-  <td class="tbd">To be determined</td>
-  <td class="tbd">To be determined</td>
-  <td><a href="locations/ats.html">ATS</a></td>
-</tr>
 EOT
 
 sub usage() {
