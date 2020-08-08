@@ -35,9 +35,16 @@ use feature qw(:5.30);
 use experimental qw(signatures);
 
 use DateTime;
+use Getopt::Long;
 
-usage() unless @ARGV == 2;
-my ($yyyy, $mm) = @ARGV;
+my $online;
+my $yyyy;
+my $mm;
+GetOptions("year=i"  => \$yyyy,
+           "month=i" => \$mm,
+           "online"  => \$online);
+usage() unless ($yyyy && $mm);
+
 my $dt = DateTime->new(
                        year  => $yyyy,
                        month => $mm,
@@ -52,13 +59,16 @@ my $central_date = sprintf "%d/%d/%d", $mm, $central, $yyyy;
 my $north_tag = sprintf "n%4d%02d%02d", $yyyy, $mm, $north;
 my $north_date = sprintf "%d/%d/%d", $mm, $north, $yyyy;
 
+my $central_loc = $online ? 'Online' : '<a href="locations/usp.html">USP</a>';
+my $north_loc   = $online ? 'Online' : '<a href="locations/coredial.html">Coredial, Blue Bell</a>';
+
 print <<EOT;
 <tr class="central">
   <td><a name="$central_tag" />PLUG Central</td>
   <td class="date">$central_date</td>
   <td class="tbd">To be determined</td>
   <td class="tbd">To be determined</td>
-  <td><a href="locations/usp.html">USP</a></td>
+  <td>$central_loc</td>
 </tr>
 
 <tr class="north">
@@ -66,13 +76,13 @@ print <<EOT;
   <td class="date">$north_date</td>
   <td class="tbd">To be determined</td>
   <td class="tbd">To be determined</td>
-  <td><a href="locations/coredial.html">Coredial, Blue Bell</a></td>
+  <td>$north_loc</td>
 </tr>
 
 EOT
 
 sub usage() {
-    say "plug_stubs YYYY MM";
+    say "plug_stubs [--online] --year=YYYY --month=MM";
     exit;
 }
 
