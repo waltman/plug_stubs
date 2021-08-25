@@ -59,8 +59,17 @@ my $central_date = sprintf "%d/%d/%d", $mm, $central, $yyyy;
 my $north_tag = sprintf "n%4d%02d%02d", $yyyy, $mm, $north;
 my $north_date = sprintf "%d/%d/%d", $mm, $north, $yyyy;
 
-my $central_loc = $online ? 'Online' : '<a href="locations/usp.html">USP</a>';
-my $north_loc   = $online ? 'Online' : '<a href="locations/coredial.html">Coredial, Blue Bell</a>';
+my ($central_loc, $north_loc);
+if ($online) {
+    my $url_stub = 'https://meet.jit.si/PLUG%s%s%d';
+    my $central_url = sprintf $url_stub, 'Central', $dt->month_name, $dt->year;
+    my $north_url   = sprintf $url_stub, 'North', $dt->month_name, $dt->year;
+    $central_loc = "<a href='$central_url'>$central_url";
+    $north_loc   = "<a href='$north_url'>$north_url";
+} else {
+    $central_loc = '<a href="locations/usp.html">USP</a>';
+    $north_loc   = '<a href="locations/coredial.html">Coredial, Blue Bell</a>';
+}
 
 print <<EOT;
 <tr class="central">
