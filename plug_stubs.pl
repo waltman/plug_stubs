@@ -73,7 +73,7 @@ if ($online) {
 
 print <<EOT;
 <tr class="central">
-  <td><a name="$central_tag" />PLUG Central</td>
+  <td><a name="$central_tag">PLUG Central</a></td>
   <td class="date">$central_date</td>
   <td class="tbd">To be determined</td>
   <td class="tbd">To be determined</td>
@@ -81,7 +81,7 @@ print <<EOT;
 </tr>
 
 <tr class="north">
-  <td><a name="$north_tag" />PLUG North</td>
+  <td><a name="$north_tag">PLUG North</a></td>
   <td class="date">$north_date</td>
   <td class="tbd">To be determined</td>
   <td class="tbd">To be determined</td>
